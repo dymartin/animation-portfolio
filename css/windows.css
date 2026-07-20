@@ -1,0 +1,541 @@
+/* ==========================================================
+   windows.css
+   Windows 95 component styling
+   Works alongside:
+      - 98.css
+      - desktop.css
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   Colour Palette
+---------------------------------------------------------- */
+
+:root {
+
+    --win-face: #c0c0c0;
+    --win-light: #ffffff;
+    --win-dark: #808080;
+    --win-black: #000000;
+
+    --title-active: #000080;
+    --title-inactive: #808080;
+
+    --text: #000;
+    --selection: #000080;
+}
+
+
+/* ----------------------------------------------------------
+   Base
+---------------------------------------------------------- */
+
+.window {
+
+    background: var(--win-face);
+
+    color: var(--text);
+
+    border-top: 2px solid var(--win-light);
+    border-left: 2px solid var(--win-light);
+
+    border-right: 2px solid var(--win-black);
+    border-bottom: 2px solid var(--win-black);
+
+    box-shadow:
+        inset -1px -1px var(--win-dark),
+        inset 1px 1px var(--win-light);
+
+}
+
+
+/* ----------------------------------------------------------
+   Title Bar
+---------------------------------------------------------- */
+
+.title-bar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    height: 24px;
+
+    padding: 2px;
+
+    background: linear-gradient(to right,
+            var(--title-active),
+            #1084d0);
+
+    color: white;
+
+}
+
+
+.window.inactive .title-bar {
+
+    background: linear-gradient(to right,
+            #7f7f7f,
+            #b1b1b1);
+
+}
+
+
+.title-bar-text {
+
+    padding-left: 4px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: .1px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+}
+
+
+.title-bar-controls {
+
+    display: flex;
+
+    gap: 2px;
+
+}
+
+
+/* ----------------------------------------------------------
+   Window Buttons
+---------------------------------------------------------- */
+
+.title-bar-controls button {
+
+    width: 18px;
+
+    height: 18px;
+
+    padding: 0;
+
+    cursor: default;
+
+}
+
+
+.title-bar-controls button:disabled {
+
+    opacity: 1;
+
+}
+
+
+/* ----------------------------------------------------------
+   Body
+---------------------------------------------------------- */
+
+.window-body {
+
+    padding: 14px;
+
+    background: var(--win-face);
+
+}
+
+
+/* ----------------------------------------------------------
+   Buttons
+---------------------------------------------------------- */
+
+button {
+
+    min-height: 24px;
+
+    padding: 3px 14px;
+
+    cursor: default;
+
+}
+
+
+button:active {
+
+    padding-top: 4px;
+
+    padding-left: 15px;
+
+}
+
+
+button:focus {
+
+    outline: 1px dotted black;
+
+    outline-offset: -4px;
+
+}
+
+
+/* ----------------------------------------------------------
+   Inputs
+---------------------------------------------------------- */
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    padding: 4px;
+
+    font: inherit;
+
+}
+
+
+/* ----------------------------------------------------------
+   Links
+---------------------------------------------------------- */
+
+a {
+
+    color: inherit;
+
+}
+
+
+.window-body a {
+
+    color: #000080;
+
+}
+
+
+.window-body a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ----------------------------------------------------------
+   Horizontal Rule
+---------------------------------------------------------- */
+
+hr {
+
+    border: none;
+
+    border-top: 1px solid #808080;
+
+    border-bottom: 1px solid white;
+
+}
+
+
+/* ----------------------------------------------------------
+   Taskbar
+---------------------------------------------------------- */
+
+#taskbar {
+
+    background: var(--win-face);
+
+    border-top: 2px solid white;
+
+    box-shadow:
+
+        inset 0 1px white;
+
+}
+
+
+/* ----------------------------------------------------------
+   Taskbar Buttons
+---------------------------------------------------------- */
+
+.taskbar-item {
+
+    max-width: 180px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.taskbar-item.active {
+
+    font-weight: bold;
+
+}
+
+
+/* ----------------------------------------------------------
+   Clock
+---------------------------------------------------------- */
+
+#clock {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 24px;
+
+    border-top: 1px solid #808080;
+
+    border-left: 1px solid #808080;
+
+    border-right: 1px solid white;
+
+    border-bottom: 1px solid white;
+
+}
+
+
+/* ----------------------------------------------------------
+   Start Menu
+---------------------------------------------------------- */
+
+#start-menu {
+
+    background: var(--win-face);
+
+    border-top: 2px solid white;
+
+    border-left: 2px solid white;
+
+    border-right: 2px solid black;
+
+    border-bottom: 2px solid black;
+
+    box-shadow:
+
+        inset -1px -1px #808080,
+
+        inset 1px 1px white;
+
+}
+
+
+#start-menu li {
+
+    position: relative;
+
+}
+
+
+#start-menu a {
+
+    padding: 7px 10px;
+
+    display: block;
+
+}
+
+
+#start-menu a:hover {
+
+    background: #000080;
+
+    color: white;
+
+}
+
+
+/* ----------------------------------------------------------
+   Welcome Window
+---------------------------------------------------------- */
+
+#welcome-window {
+
+    min-height: 330px;
+
+}
+
+
+#welcome-window h2 {
+
+    margin-top: 2px;
+
+}
+
+
+#welcome-window p {
+
+    max-width: 54ch;
+
+}
+
+
+/* ----------------------------------------------------------
+   Gallery Cards
+---------------------------------------------------------- */
+
+.card {
+
+    background: var(--win-face);
+
+    border-top: 2px solid white;
+
+    border-left: 2px solid white;
+
+    border-right: 2px solid black;
+
+    border-bottom: 2px solid black;
+
+    box-shadow:
+
+        inset -1px -1px #808080,
+
+        inset 1px 1px white;
+
+    padding: 8px;
+
+}
+
+
+.card h3,
+.card h4 {
+
+    margin-top: 10px;
+
+    margin-bottom: 6px;
+
+}
+
+
+.card p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+}
+
+
+/* ----------------------------------------------------------
+   Video
+---------------------------------------------------------- */
+
+video,
+iframe {
+
+    display: block;
+
+    width: 100%;
+
+    background: black;
+
+    border:
+
+        inset 2px #808080;
+
+}
+
+
+/* ----------------------------------------------------------
+   Scrollbars
+---------------------------------------------------------- */
+
+::-webkit-scrollbar {
+
+    width: 16px;
+    height: 16px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #c0c0c0;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #c0c0c0;
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+
+}
+
+
+/* ----------------------------------------------------------
+   Text Selection
+---------------------------------------------------------- */
+
+::selection {
+
+    background: #000080;
+
+    color: white;
+
+}
+
+
+/* ----------------------------------------------------------
+   Focus Ring
+---------------------------------------------------------- */
+
+:focus-visible {
+
+    outline: 1px dotted black;
+
+}
+
+
+/* ----------------------------------------------------------
+   Disabled
+---------------------------------------------------------- */
+
+button:disabled {
+
+    color: #666;
+
+}
+
+
+/* ----------------------------------------------------------
+   Small Polish
+---------------------------------------------------------- */
+
+.window {
+
+    image-rendering: auto;
+
+}
+
+.window:hover {
+
+    z-index: 20;
+
+}
+
+.title-bar-text {
+
+    user-select: none;
+
+}
+
+.title-bar-controls button {
+
+    user-select: none;
+
+}

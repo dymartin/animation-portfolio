@@ -1,0 +1,501 @@
+/* ==========================================================
+   desktop.css
+   Desktop layout and workspace
+   ========================================================== */
+
+:root {
+
+    --desktop-colour: #008080;
+
+    --taskbar-height: 38px;
+
+    --desktop-padding: 18px;
+
+    --icon-width: 84px;
+
+    --icon-size: 34px;
+
+    --window-width: 560px;
+
+    --window-top: 80px;
+
+    --window-left: 290px;
+
+    --desktop-font:
+        "MS Sans Serif",
+        "Microsoft Sans Serif",
+        Tahoma,
+        Geneva,
+        sans-serif;
+}
+
+/* ---------------------------------------------------------- */
+/* Reset */
+/* ---------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+
+    box-sizing: border-box;
+
+}
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    font-family: var(--desktop-font);
+
+    user-select: none;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Desktop */
+/* ---------------------------------------------------------- */
+
+body {
+
+    background: var(--desktop-colour);
+
+}
+
+#desktop {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    overflow: visible;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Desktop Icons */
+/* ---------------------------------------------------------- */
+
+#desktop-icons {
+
+    position: absolute;
+
+    top: 20px;
+    left: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    z-index: 5;
+
+}
+
+.desktop-icon {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    width: var(--icon-width);
+
+    text-decoration: none;
+
+    color: white;
+
+    cursor: default;
+
+    padding: 4px;
+
+    border: 1px solid transparent;
+
+    outline: none;
+
+}
+
+.desktop-icon img {
+
+    width: var(--icon-size);
+
+    height: var(--icon-size);
+
+    image-rendering: pixelated;
+
+    margin-bottom: 6px;
+
+    pointer-events: none;
+
+}
+
+.desktop-icon span {
+
+    text-align: center;
+
+    font-size: 12px;
+
+    line-height: 15px;
+
+    color: white;
+
+    text-shadow: 1px 1px black;
+
+    pointer-events: none;
+
+}
+
+/* Hover */
+
+.desktop-icon:hover {
+
+    background: rgba(255, 255, 255, .06);
+
+}
+
+/* Selected */
+
+.desktop-icon.selected {
+
+    background: #000080;
+
+    border: 1px dotted white;
+
+}
+
+/* Keyboard */
+
+.desktop-icon:focus {
+
+    background: #000080;
+
+    border: 1px dotted white;
+
+}
+
+/* Active click */
+
+.desktop-icon:active {
+
+    transform: translateY(1px);
+
+}
+
+/* ---------------------------------------------------------- */
+/* Main Window Placement */
+/* ---------------------------------------------------------- */
+
+main {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+#welcome-window {
+
+    position: absolute;
+
+    top: var(--window-top);
+
+    left: var(--window-left);
+
+    width: var(--window-width);
+
+    animation: windowOpen .18s ease-out;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Window Content */
+/* ---------------------------------------------------------- */
+
+.window-body {
+
+    font-size: 13px;
+
+    line-height: 1.45;
+
+}
+
+.window-body h2 {
+
+    margin-top: 4px;
+
+    margin-bottom: 10px;
+
+    font-size: 24px;
+
+}
+
+.window-body p {
+
+    margin-bottom: 14px;
+
+}
+
+.window-body hr {
+
+    margin: 16px 0;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Taskbar */
+/* ---------------------------------------------------------- */
+
+#taskbar {
+
+    position: relative;
+
+    width: min(1200px, 95vw);
+
+    margin: 0 auto 20px;
+
+    height: var(--taskbar-height);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 4px;
+
+}
+
+/* Start Button */
+
+#start-button {
+
+    min-width: 84px;
+
+    font-weight: bold;
+
+}
+
+/* Running Apps */
+
+#taskbar-apps {
+
+    display: flex;
+
+    gap: 4px;
+
+    flex: 1;
+
+    overflow: hidden;
+
+}
+
+.taskbar-item {
+
+    min-width: 140px;
+
+}
+
+/* Clock */
+
+#clock {
+
+    min-width: 72px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    padding: 0 10px;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Start Menu */
+/* ---------------------------------------------------------- */
+
+#start-menu {
+
+    position: fixed;
+
+    left: 4px;
+
+    bottom: var(--taskbar-height);
+
+    width: 220px;
+
+    z-index: 1000;
+
+}
+
+#start-menu ul {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+#start-menu li {
+
+    margin: 0;
+
+}
+
+#start-menu a,
+#start-menu button {
+
+    display: block;
+
+    width: 100%;
+
+    text-align: left;
+
+    text-decoration: none;
+
+    color: black;
+
+    font: inherit;
+
+    background: none;
+
+    border: none;
+
+    padding: 7px 10px;
+
+    cursor: default;
+
+}
+
+#start-menu a:hover {
+
+    background: #000080;
+
+    color: white;
+
+}
+
+#start-menu button {
+
+    opacity: .55;
+
+}
+
+.divider {
+
+    height: 1px;
+
+    margin: 4px 0;
+
+    background: #888;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Utilities */
+/* ---------------------------------------------------------- */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+.invisible {
+
+    visibility: hidden;
+
+}
+
+.center {
+
+    text-align: center;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Window Animation */
+/* ---------------------------------------------------------- */
+
+@keyframes windowOpen {
+
+    from {
+
+        opacity: .92;
+
+        transform: scale(.985);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+/* ---------------------------------------------------------- */
+/* Image defaults */
+/* ---------------------------------------------------------- */
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+/* ---------------------------------------------------------- */
+/* Future Explorer Pages */
+/* ---------------------------------------------------------- */
+
+.page-window {
+
+    width: 1100px;
+
+    margin: 40px auto;
+
+}
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+.desktop-svg {
+
+    width: 34px;
+
+    height: 34px;
+
+    margin-bottom: 6px;
+
+    color: white;
+
+    image-rendering: pixelated;
+
+}
