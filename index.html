@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dylan Martin — Animation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/98.css@0.1.21/dist/98.css">
+  <link rel="stylesheet" href="css/win95.css">
+</head>
+
+<body>
+
+  <div id="desktop">
+
+    <!-- ── Desktop icons ─────────────────────────────────────────────── -->
+    <div id="icons">
+      <button class="desktop-icon" data-icon="Shell3216_32x32_4" data-opens="win-computer">Short&nbsp;Computer</button>
+      <button class="desktop-icon" data-icon="Folder_32x32_4" data-opens="win-animations">Short&nbsp;Animations</button>
+      <button class="desktop-icon" data-icon="Shell3218_32x32_4">Network<br>Neighborhood</button>
+      <button class="desktop-icon" data-icon="Notepad2_32x32_4" data-opens="win-notice">Read&nbsp;Me</button>
+      <button class="desktop-icon" data-icon="Shell3232_32x32_4">Recycle&nbsp;Bin</button>
+    </div>
+
+    <!-- ── Notice window ─────────────────────────────────────────────── -->
+    <div class="window" id="win-notice" style="width:460px;left:50%;top:50%;transform:translate(-50%,-50%)">
+      <div class="title-bar">
+        <div class="title-bar-text">Read Me — Notepad</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <span>File</span><span>Edit</span><span>Search</span><span>Help</span>
+      </div>
+      <div class="window-body">
+        <p><b>Welcome.</b></p>
+        <p>
+          This is a small collection of some of my computer graphic work.
+        </p>
+        <p>
+          Open <b>Short&nbsp;Animations</b> on the desktop to browse the showreel.
+        </p>
+        <p>Reach out at <b>dylanmartin334@gmail.com</b>.</p>
+      </div>
+      <div class="status-bar">
+        <p class="status-bar-field">Ln 1, Col 1</p>
+        <p class="status-bar-field">read-only</p>
+      </div>
+    </div>
+
+    <!-- ── My Computer ───────────────────────────────────────────────── -->
+    <div class="window hidden" id="win-computer" style="width:420px;left:120px;top:120px">
+      <div class="title-bar">
+        <div class="title-bar-text">My Computer</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <span>File</span><span>Edit</span><span>View</span><span>Help</span>
+      </div>
+      <div class="window-body folder-view">
+        <button class="desktop-icon dark" data-icon="Shell326_32x32_4">3½&nbsp;Floppy&nbsp;(A:)</button>
+        <button class="desktop-icon dark" data-icon="Shell328_32x32_4">(C:)</button>
+        <button class="desktop-icon dark" data-icon="Shell3212_32x32_4">(D:)</button>
+        <button class="desktop-icon dark" data-icon="Folder_32x32_4" data-opens="win-animations">Animations</button>
+      </div>
+      <div class="status-bar">
+        <p class="status-bar-field">4 object(s)</p>
+      </div>
+    </div>
+
+    <!-- ── Short Animations ─────────────────────────────────────────────── -->
+    <div class="window hidden" id="win-animations" style="width:440px;left:200px;top:180px">
+      <div class="title-bar">
+        <div class="title-bar-text">Short Animations</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <span>File</span><span>Edit</span><span>View</span><span>Help</span>
+      </div>
+      <div class="window-body folder-view" id="reel"></div>
+      <div class="status-bar">
+        <p class="status-bar-field" id="reel-count">0 object(s)</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Taskbar ─────────────────────────────────────────────────────── -->
+  <div id="taskbar">
+    <button id="start-button">
+      <svg width="16" height="15" viewBox="0 0 16 15" aria-hidden="true">
+        <path fill="#f00" d="M0 2.2 6.6.9v5.6H0z" />
+        <path fill="#0c0" d="M7.5.7 16 0v6.4H7.5z" />
+        <path fill="#00f" d="M0 7.4h6.6V13L0 11.8z" />
+        <path fill="#fc0" d="M7.5 7.4H16v6.7l-8.5-1.2z" />
+      </svg><b>Start</b>
+    </button>
+    <div class="tb-divider"></div>
+    <div id="tasks"></div>
+    <div id="tray">
+      <img src="https://cdn.jsdelivr.net/npm/@react95/icons@2.5.3/png/MediaAudio_16x16_4.png" alt="Volume">
+      <span id="clock">--:--</span>
+    </div>
+  </div>
+
+  <!-- ── Start menu ──────────────────────────────────────────────────── -->
+  <div id="start-menu" class="hidden">
+    <div id="start-banner"><span>Windows<b>95</b></span></div>
+    <ul>
+      <li data-icon="Shell3220_32x32_4"><span>P<u>r</u>ograms</span><span class="arrow">▶</span></li>
+      <li data-icon="Shell3221_32x32_4" data-opens="win-animations"><span><u>D</u>ocuments</span><span
+          class="arrow">▶</span></li>
+      <li data-icon="Shell3222_32x32_4"><span><u>S</u>ettings</span><span class="arrow">▶</span></li>
+      <li data-icon="Shell3223_32x32_4"><span><u>F</u>ind</span><span class="arrow">▶</span></li>
+      <li data-icon="Shell3224_32x32_4" data-opens="win-notice"><span><u>H</u>elp</span></li>
+      <li data-icon="Shell32153_32x32_4"><span><u>R</u>un...</span></li>
+      <li class="sep"></li>
+      <li data-icon="Shell3228_32x32_4"><span>Sh<u>u</u>t Down...</span></li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.27/dist/interact.min.js"></script>
+  <script src="js/desktop.js"></script>
+</body>
+
+</html>
